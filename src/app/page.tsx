@@ -2,26 +2,24 @@ import {
   FaqSection,
   FinalCtaSection,
   HeroSection,
-  OutcomesSection,
   PainSection,
   PreviewSection,
-  PricingSection,
-  ProgramIntroSection,
   ScanAnchorSection,
-  SprintContentSection,
 } from "@/components/landing-sections";
+import {
+  TestimonialsSection,
+  TrustSignalsSection,
+} from "@/components/social-proof";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+      <TrustSignalsSection />
       <PainSection />
       <ScanAnchorSection />
       <PreviewSection />
-      <ProgramIntroSection />
-      <SprintContentSection />
-      <OutcomesSection />
-      <PricingSection />
+      <TestimonialsSection />
       <FaqSection />
       <FinalCtaSection />
     </>

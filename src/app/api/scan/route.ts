@@ -1,5 +1,6 @@
 import { scoreResumeText } from "@/lib/score-resume";
 import { extractTextFromBuffer } from "@/lib/extract-text";
+import { isValidEmail } from "@/lib/email";
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
@@ -11,6 +12,17 @@ export async function POST(request: Request) {
 
     if (!file || !(file instanceof File)) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
+    }
+
+    const emailRaw = form.get("email");
+    const marketingRaw = form.get("marketingOptIn");
+    const email =
+      typeof emailRaw === "string" && emailRaw.trim()
+        ? emailRaw.trim()
+        : null;
+    const marketingOptIn = marketingRaw === "true";
+    if (email && !isValidEmail(email)) {
+      return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
     }
 
     const name = file.name || "resume";
@@ -29,6 +41,15 @@ export async function POST(request: Request) {
     }
 
     const result = scoreResumeText(text, name);
+    if (email) {
+      // Hook for CRM / email provider — extend here (e.g. webhook, queue).
+      if (process.env.NODE_ENV === "development") {
+        console.info("[scan] completed with lead", {
+          marketingOptIn,
+          file: name,
+        });
+      }
+    }
     return NextResponse.json(result);
   } catch (e) {
     const message = e instanceof Error ? e.message : "Scan failed";

@@ -10,10 +10,10 @@ export default function CheckoutCancelPage() {
         No charge was made. You can return anytime to start your sprint.
       </p>
       <Link
-        href="/#pricing"
+        href="/pricing"
         className="mt-10 inline-flex justify-center rounded-full border border-white/20 px-8 py-3 font-semibold text-white hover:bg-white/5"
       >
-        View pricing
+        View plans
       </Link>
     </div>
   );

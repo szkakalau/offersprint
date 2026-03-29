@@ -1,10 +1,9 @@
 import Link from "next/link";
 
 const nav = [
-  { href: "#scan", label: "Free scan" },
-  { href: "#program", label: "Program" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#scan", label: "Scan resume" },
+  { href: "/pricing#program", label: "Program & pricing" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function SiteHeader() {
@@ -29,10 +28,10 @@ export function SiteHeader() {
           ))}
         </nav>
         <a
-          href="#scan"
+          href="/#scan"
           className="rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_24px_-4px_rgba(16,185,129,0.55)] transition hover:bg-emerald-400"
         >
-          Free ATS scan
+          Scan resume free
         </a>
       </div>
     </header>

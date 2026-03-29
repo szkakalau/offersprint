@@ -1,36 +1,51 @@
 import Link from "next/link";
+import {
+  HeroReportMock,
+  AtsPipelineDiagram,
+  PreviewReportMock,
+  UploadFlowStrip,
+} from "@/components/product-visuals";
+import { HeroSocialProofLine } from "@/components/social-proof";
 import { UploadSection } from "@/components/upload-section";
 
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pt-16 md:pb-28">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(16,185,129,0.22),transparent)]" />
-      <div className="relative mx-auto max-w-4xl text-center">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400/90">
-          OfferSprint — 14-day interview rate plan
-        </p>
-        <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl">
-          You&apos;re not getting interviews because your resume is failing ATS.
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400 sm:text-xl">
-          Stop sending resumes into the void. Upload your resume and discover your
-          interview probability in about 60 seconds.
-        </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="#scan"
-            className="inline-flex w-full items-center justify-center rounded-full bg-emerald-500 px-8 py-4 text-base font-bold text-zinc-950 shadow-[0_0_40px_-8px_rgba(16,185,129,0.6)] transition hover:bg-emerald-400 sm:w-auto"
-          >
-            Free ATS resume scan
-          </a>
+      <div className="relative mx-auto max-w-6xl">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-12">
+          <div className="text-center lg:text-left">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400/90">
+              OfferSprint — 14-day interview rate plan
+            </p>
+            <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl">
+              You&apos;re not getting interviews because your resume is failing ATS.
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400 sm:text-xl lg:mx-0">
+              Stop sending resumes into the void. Upload your resume and discover your
+              interview probability in about 60 seconds.
+            </p>
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+              <a
+                href="#scan"
+                className="inline-flex w-full items-center justify-center rounded-full bg-emerald-500 px-8 py-4 text-base font-bold text-zinc-950 shadow-[0_0_40px_-8px_rgba(16,185,129,0.6)] transition hover:bg-emerald-400 sm:w-auto"
+              >
+                Scan resume free
+              </a>
           <p className="text-sm text-zinc-500">
-            No signup required · Instant results
+            Email + resume · Results in ~60s · No account password
           </p>
-        </div>
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-zinc-500">
-          <span>Designed for competitive job markets</span>
-          <span className="hidden sm:inline">·</span>
-          <span>Private scan — we don&apos;t require an account</span>
+            </div>
+            <HeroSocialProofLine />
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-zinc-500 lg:justify-start">
+              <span>Designed for competitive job markets</span>
+              <span className="hidden sm:inline">·</span>
+              <span>Private scan — we don&apos;t require an account</span>
+            </div>
+          </div>
+          <div className="flex justify-center lg:justify-end">
+            <HeroReportMock />
+          </div>
         </div>
       </div>
     </section>
@@ -67,6 +82,7 @@ export function PainSection() {
         <p className="mt-8 text-lg font-medium text-white">
           If you don&apos;t pass ATS → you don&apos;t exist.
         </p>
+        <AtsPipelineDiagram />
       </div>
     </section>
   );
@@ -80,43 +96,10 @@ export function PreviewSection() {
           Here&apos;s what you&apos;ll discover
         </h2>
         <p className="mt-3 text-sm text-zinc-500">
-          Illustrative example — not your file
+          Illustrative UI — not your file
         </p>
-        <div className="mt-10 rounded-2xl border border-white/10 bg-zinc-900/50 p-6 sm:p-8">
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div>
-              <p className="text-xs uppercase tracking-wider text-zinc-500">
-                ATS score
-              </p>
-              <p className="mt-1 font-[family-name:var(--font-display)] text-4xl font-semibold text-white">
-                48{" "}
-                <span className="text-lg font-normal text-zinc-500">/ 100</span>
-              </p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-wider text-zinc-500">
-                Interview probability
-              </p>
-              <p className="mt-1 font-[family-name:var(--font-display)] text-4xl font-semibold text-emerald-400">
-                17%
-              </p>
-            </div>
-          </div>
-          <p className="mt-8 text-sm font-medium text-zinc-300">
-            Biggest issues found:
-          </p>
-          <ul className="mt-3 space-y-2 text-sm text-zinc-400">
-            <li>Missing critical role keywords</li>
-            <li>Experience not aligned with target role</li>
-            <li>Weak achievement framing</li>
-            <li>Not optimized for ATS parsing</li>
-          </ul>
-          <p className="mt-8 border-t border-white/10 pt-6 text-sm text-zinc-400">
-            After optimization (illustrative):{" "}
-            <span className="font-semibold text-emerald-400">
-              expected interview rate: 62%
-            </span>
-          </p>
+        <div className="mt-10">
+          <PreviewReportMock />
         </div>
         <p className="mt-6 text-center text-sm text-zinc-500">
           This step helps you visualize the gap — before you invest weeks applying.
@@ -146,7 +129,7 @@ export function ProgramIntroSection() {
 
 export function SprintContentSection() {
   return (
-    <section id="program" className="scroll-mt-24 px-4 py-12 sm:px-6">
+    <section className="scroll-mt-24 px-4 py-12 sm:px-6">
       <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
         <div className="rounded-2xl border border-white/10 bg-zinc-900/40 p-8">
           <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
@@ -242,8 +225,11 @@ export function PricingSection() {
     <section id="pricing" className="scroll-mt-24 border-t border-white/10 px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-center font-[family-name:var(--font-display)] text-3xl font-semibold text-white sm:text-4xl">
-          Start your interview sprint
+          Turn your scan into interviews
         </h2>
+        <p className="mx-auto mt-3 max-w-xl text-center text-sm text-zinc-500">
+          You&apos;ve seen the gaps — here&apos;s how we help you close them.
+        </p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           <div className="flex flex-col rounded-2xl border border-white/10 bg-zinc-900/30 p-8">
             <p className="text-sm font-medium text-zinc-500">Free</p>
@@ -251,10 +237,10 @@ export function PricingSection() {
               ATS resume scan
             </p>
             <p className="mt-4 flex-1 text-sm text-zinc-400">
-              Instant heuristic report — no account required.
+              Instant heuristic report — email + resume, no password.
             </p>
             <a
-              href="#scan"
+              href="/#scan"
               className="mt-8 inline-flex justify-center rounded-full border border-white/20 py-3 text-sm font-semibold text-white hover:bg-white/5"
             >
               Scan free
@@ -357,13 +343,13 @@ export function FinalCtaSection() {
           Stop being ignored by recruiters.
         </h2>
         <p className="mt-4 text-lg text-zinc-400">
-          Scan your resume free now.
+          Know your ATS gap in about a minute — we ask for email so you can receive your report.
         </p>
         <a
           href="#scan"
           className="mt-10 inline-flex rounded-full bg-emerald-500 px-10 py-4 text-base font-bold text-zinc-950 hover:bg-emerald-400"
         >
-          Get my ATS score
+          Scan resume free
         </a>
         <p className="mt-6 text-sm text-zinc-600">
           <Link href="/privacy" className="underline hover:text-zinc-400">
@@ -383,6 +369,7 @@ export function ScanAnchorSection() {
   return (
     <section className="px-4 pb-8 pt-4 sm:px-6">
       <div className="mx-auto max-w-4xl">
+        <UploadFlowStrip />
         <UploadSection />
       </div>
     </section>
