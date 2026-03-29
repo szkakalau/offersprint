@@ -1,0 +1,14 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Your ATS scan",
+  robots: { index: false, follow: false },
+};
+
+export default function ResultLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return children;
+}
