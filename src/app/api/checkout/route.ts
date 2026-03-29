@@ -1,3 +1,4 @@
+import { getAppBaseUrlWithFallback } from "@/lib/app-url";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -23,11 +24,7 @@ export async function POST(request: Request) {
 
   const form = await request.formData();
   const plan = form.get("plan");
-  const base =
-    process.env.NEXT_PUBLIC_APP_URL ||
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
+  const base = getAppBaseUrlWithFallback();
 
   const priceSprint = process.env.STRIPE_PRICE_INTERVIEW_SPRINT;
   const priceOffer = process.env.STRIPE_PRICE_OFFER_PLAN;

@@ -4,6 +4,7 @@ import { Plus_Jakarta_Sans, Syne } from "next/font/google";
 import { CookieBanner } from "@/components/cookie-banner";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { getAppBaseUrl } from "@/lib/app-url";
 import "./globals.css";
 
 const display = Syne({
@@ -18,9 +19,7 @@ const sans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_APP_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined);
+const baseUrl = getAppBaseUrl();
 
 export const metadata: Metadata = {
   metadataBase: baseUrl ? new URL(baseUrl) : undefined,
