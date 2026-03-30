@@ -128,3 +128,60 @@ body {
     animation: none;
   }
 }
+
+/* Usage flow — connector pulse between steps */
+@keyframes os-flow-dash {
+  0% {
+    opacity: 0.35;
+    transform: scaleX(0.92);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0.35;
+    transform: scaleX(0.92);
+  }
+}
+
+.os-flow-connector {
+  animation: os-flow-dash 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .os-flow-connector {
+    animation: none;
+    opacity: 0.55;
+  }
+}
+
+/* ATS before/after bar fill-in */
+@keyframes os-ats-reveal {
+  from {
+    transform: scaleX(0.35);
+    opacity: 0.65;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.os-ats-bar-before,
+.os-ats-bar-after {
+  transform-origin: left center;
+  animation: os-ats-reveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.os-ats-bar-after {
+  animation-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .os-ats-bar-before,
+  .os-ats-bar-after {
+    animation: none;
+  }
+}

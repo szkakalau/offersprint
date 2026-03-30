@@ -1,9 +1,13 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import {
+  ATS_BEFORE_AFTER,
+  MONEY_BACK_GUARANTEE,
   REAL_RESULTS_CARDS,
   REAL_RESULTS_HEADLINE,
   REPORT_SHOWCASE,
   SECURITY_BADGES,
+  USAGE_FLOW,
 } from "@/content/conversion-copy";
 import { PreviewReportMock } from "@/components/product-visuals";
 
@@ -232,5 +236,191 @@ export function ReportShowcaseSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function FlowArrow({ className }: { className?: string }) {
+  return (
+    <div
+      className={`flex shrink-0 items-center justify-center py-1 text-zinc-600 lg:py-0 ${className ?? ""}`}
+      aria-hidden
+    >
+      <span className="flex flex-row items-center gap-1 lg:gap-0.5">
+        <span className="os-flow-connector hidden h-px w-5 max-w-[2.5rem] bg-gradient-to-r from-transparent to-emerald-500/45 sm:w-8 lg:block" />
+        <span className="text-lg font-semibold leading-none text-emerald-500/85 lg:text-xl">
+          <span className="lg:hidden">↓</span>
+          <span className="hidden lg:inline">→</span>
+        </span>
+        <span className="os-flow-connector hidden h-px w-5 max-w-[2.5rem] bg-gradient-to-l from-transparent to-emerald-500/45 sm:w-8 lg:block" />
+      </span>
+    </div>
+  );
+}
+
+/** Full journey visualization — reduces “black box” anxiety. */
+export function UsageFlowSection() {
+  const F = USAGE_FLOW;
+  const steps = [...F.steps];
+  return (
+    <section
+      id="how-it-works"
+      className="relative scroll-mt-24 border-t border-white/10 bg-gradient-to-b from-[#050807] via-[#070a09] to-transparent px-4 py-24 sm:px-6"
+      aria-labelledby="usage-flow-heading"
+    >
+      <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-emerald-500/85">
+            {F.eyebrow}
+          </p>
+          <h2
+            id="usage-flow-heading"
+            className="mt-4 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.45rem] md:leading-[1.12]"
+          >
+            {F.title}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+            {F.subtitle}
+          </p>
+        </div>
+
+        <div
+          className="os-stagger mt-14 flex flex-col gap-2 lg:flex-row lg:items-stretch lg:gap-0"
+          role="list"
+          aria-label="Steps from resume upload to interviews"
+        >
+          {steps.map((step, i) => (
+            <Fragment key={step.key}>
+              <div
+                role="listitem"
+                className="group relative flex min-h-0 flex-1 flex-col rounded-2xl border border-white/[0.08] bg-gradient-to-b from-zinc-900/60 to-black/50 p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition hover:border-emerald-500/25 hover:shadow-[0_0_48px_-20px_rgba(16,185,129,0.2)]"
+              >
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-zinc-600">
+                  Step {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="mt-3 font-[family-name:var(--font-display)] text-lg font-semibold text-white sm:text-xl">
+                  {step.title}
+                </p>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-500">
+                  {step.body}
+                </p>
+                <div
+                  className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition group-hover:opacity-100"
+                  style={{
+                    background:
+                      "radial-gradient(120% 80% at 50% 0%, rgba(16,185,129,0.12), transparent 55%)",
+                  }}
+                />
+              </div>
+              {i < steps.length - 1 ? (
+                <FlowArrow className="lg:w-10 lg:px-1 xl:w-14 xl:px-2" />
+              ) : null}
+            </Fragment>
+          ))}
+        </div>
+
+        <p className="mt-10 text-center text-xs text-zinc-600">
+          Upload → personalized report → apply with clarity → stack conversations.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/** Before/after ATS scores — high-signal social proof. */
+export function AtsBeforeAfterSection() {
+  const A = ATS_BEFORE_AFTER;
+  return (
+    <section
+      className="relative px-4 py-24 sm:px-6"
+      aria-labelledby="ats-before-after-heading"
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-500/25 to-transparent" />
+      <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-zinc-500">
+            {A.eyebrow}
+          </p>
+          <h2
+            id="ats-before-after-heading"
+            className="mt-4 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+          >
+            {A.title}
+          </h2>
+          <p className="mt-4 text-base text-zinc-400 sm:text-lg">{A.subtitle}</p>
+        </div>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8">
+          <article className="relative overflow-hidden rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-950/35 via-zinc-950/80 to-black p-8 sm:p-10">
+            <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-red-500/10 blur-3xl" />
+            <p className="text-xs font-semibold uppercase tracking-wider text-red-300/80">
+              {A.beforeLabel}
+            </p>
+            <p className="mt-4 font-[family-name:var(--font-display)] text-6xl font-semibold tabular-nums tracking-tight text-white sm:text-7xl">
+              {A.beforeScore}
+              <span className="text-2xl font-medium text-zinc-600 sm:text-3xl">/100</span>
+            </p>
+            <p className="mt-2 text-sm font-medium text-red-200/70">ATS score</p>
+            <div className="mt-8 h-3 overflow-hidden rounded-full bg-black/50 ring-1 ring-red-500/20">
+              <div
+                className="os-ats-bar-before h-full rounded-full bg-gradient-to-r from-red-600/90 to-amber-600/70"
+                style={{ width: `${A.beforeScore}%` }}
+              />
+            </div>
+            <p className="mt-6 text-sm leading-relaxed text-zinc-400">{A.beforeNote}</p>
+          </article>
+
+          <article className="relative overflow-hidden rounded-2xl border border-emerald-500/35 bg-gradient-to-br from-emerald-950/40 via-zinc-950/80 to-black p-8 sm:p-10 shadow-[0_0_60px_-24px_rgba(16,185,129,0.35)]">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-emerald-500/15 blur-3xl" />
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-300/90">
+              {A.afterLabel}
+            </p>
+            <p className="mt-4 font-[family-name:var(--font-display)] text-6xl font-semibold tabular-nums tracking-tight text-emerald-300 sm:text-7xl">
+              {A.afterScore}
+              <span className="text-2xl font-medium text-emerald-700/80 sm:text-3xl">/100</span>
+            </p>
+            <p className="mt-2 text-sm font-medium text-emerald-200/80">ATS score</p>
+            <div className="mt-8 h-3 overflow-hidden rounded-full bg-black/50 ring-1 ring-emerald-500/30">
+              <div
+                className="os-ats-bar-after h-full rounded-full bg-gradient-to-r from-emerald-600 to-emerald-400"
+                style={{ width: `${A.afterScore}%` }}
+              />
+            </div>
+            <p className="mt-6 text-sm leading-relaxed text-zinc-400">{A.afterNote}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Pricing-adjacent risk reversal — cold traffic trust. */
+export function MoneyBackGuaranteeBanner() {
+  const G = MONEY_BACK_GUARANTEE;
+  return (
+    <div
+      className="relative overflow-hidden rounded-2xl border border-amber-500/30 bg-gradient-to-br from-amber-950/35 via-zinc-950/50 to-black p-6 shadow-[0_0_40px_-16px_rgba(245,158,11,0.2)] sm:p-8"
+      role="region"
+      aria-label={G.title}
+    >
+      <div className="pointer-events-none absolute -right-16 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-amber-400/10 blur-2xl" />
+      <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+        <span
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-amber-500/35 bg-amber-500/10 text-2xl"
+          aria-hidden
+        >
+          🛡️
+        </span>
+        <div className="min-w-0 flex-1 text-center sm:text-left">
+          <p className="inline-flex rounded-full border border-amber-500/25 bg-amber-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-200/95">
+            {G.badge}
+          </p>
+          <p className="mt-3 font-[family-name:var(--font-display)] text-xl font-semibold text-white sm:text-2xl">
+            {G.title}
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-400">{G.body}</p>
+          <p className="mt-3 text-xs text-zinc-600">{G.foot}</p>
+        </div>
+      </div>
+    </div>
   );
 }

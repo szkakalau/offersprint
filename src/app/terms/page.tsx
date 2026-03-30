@@ -36,6 +36,14 @@ export default function TermsPage() {
           Paid sprints may be delivered in batches during beta. Descriptions on
           the checkout page at time of purchase apply.
         </p>
+        <h2 className="font-semibold text-white">Refunds</h2>
+        <p>
+          Interview Sprint and Offer plan purchases may be refunded in full if
+          you contact us within 14 days of payment and your account has not
+          received substantial custom deliverables beyond what is reasonable for
+          a good-faith trial. We may ask a brief reason to improve the product.
+          Free scans and promotional credits are not refundable.
+        </p>
         <h2 className="font-semibold text-white">Limitation of liability</h2>
         <p>
           To the maximum extent permitted by law, OfferSprint is not liable for

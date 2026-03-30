@@ -4,7 +4,10 @@ import {
   AtsPipelineDiagram,
   UploadFlowStrip,
 } from "@/components/product-visuals";
-import { SecurityBadgeStrip } from "@/components/conversion-sections";
+import {
+  MoneyBackGuaranteeBanner,
+  SecurityBadgeStrip,
+} from "@/components/conversion-sections";
 import { HeroSocialProofLine } from "@/components/social-proof";
 import { UploadSection } from "@/components/upload-section";
 
@@ -69,7 +72,7 @@ export function HeroSection() {
 export function PainSection() {
   return (
     <section className="border-y border-white/10 bg-black/20 px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-3xl lg:max-w-[46rem]">
         <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold text-white sm:text-4xl">
           75% of resumes are rejected before a human sees them.
         </h2>
@@ -223,6 +226,9 @@ export function PricingSection() {
         <p className="mx-auto mt-3 max-w-xl text-center text-sm text-zinc-500">
           You&apos;ve seen the gaps — here&apos;s how we help you close them.
         </p>
+        <div className="mt-10">
+          <MoneyBackGuaranteeBanner />
+        </div>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           <div className="flex flex-col rounded-2xl border border-white/10 bg-zinc-900/30 p-8">
             <p className="text-sm font-medium text-zinc-500">Free</p>
@@ -299,6 +305,10 @@ export function FaqSection() {
     {
       q: "How fast are results?",
       a: "Many active applicants see more interviews within 2–3 weeks — varies by market.",
+    },
+    {
+      q: "Is there a refund policy?",
+      a: "Yes. Paid plans include a 14-day money-back guarantee — email support within 14 days of purchase if you’re not satisfied. Free scans are not eligible.",
     },
     {
       q: "Who is this for?",

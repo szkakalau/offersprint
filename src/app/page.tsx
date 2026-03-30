@@ -9,8 +9,10 @@ import {
   SprintContentSection,
 } from "@/components/landing-sections";
 import {
+  AtsBeforeAfterSection,
   RealResultsDataSection,
   ReportShowcaseSection,
+  UsageFlowSection,
 } from "@/components/conversion-sections";
 import { SocialProofBurstSection } from "@/components/social-proof";
 
@@ -20,8 +22,10 @@ export default function Home() {
       <HeroSection />
       <SocialProofBurstSection />
       <PainSection />
+      <UsageFlowSection />
       <ScanAnchorSection />
       <ReportShowcaseSection />
+      <AtsBeforeAfterSection />
       <RealResultsDataSection />
       <div id="program" className="scroll-mt-24">
         <ProgramIntroSection />

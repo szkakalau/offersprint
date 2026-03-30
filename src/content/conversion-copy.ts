@@ -1,5 +1,57 @@
 /** Homepage conversion blocks — keep figures honest vs. analytics. */
 
+/** End-to-end journey — demystifies the product (not a black box). */
+export const USAGE_FLOW = {
+  eyebrow: "How it works",
+  title: "Your path from file to interviews",
+  subtitle:
+    "No mystery steps — you always know what happens next after you upload.",
+  steps: [
+    {
+      key: "upload",
+      title: "Upload resume",
+      body: "PDF or DOCX — we parse structure, keywords, and ATS signals.",
+    },
+    {
+      key: "report",
+      title: "Get report",
+      body: "ATS-style score, gaps, and fixes you can act on in one sitting.",
+    },
+    {
+      key: "apply",
+      title: "Apply smarter",
+      body: "Tailor versions, cover letters, and targeting from what the scan showed.",
+    },
+    {
+      key: "interviews",
+      title: "Get interviews",
+      body: "More aligned applications → more conversations with real humans.",
+    },
+  ],
+} as const;
+
+/** High-contrast proof block — illustrative composite, not a single-user promise. */
+export const ATS_BEFORE_AFTER = {
+  eyebrow: "Before / after",
+  title: "What fixing your ATS score actually looks like",
+  subtitle:
+    "Composite example from anonymized scans — your numbers will differ, but the lift pattern is what we optimize for.",
+  beforeLabel: "Before optimization",
+  afterLabel: "After optimization",
+  beforeScore: 42,
+  afterScore: 91,
+  beforeNote: "Filtered out early — weak keyword & format match.",
+  afterNote: "Stronger parse + keyword coverage — passes more ATS gates.",
+} as const;
+
+/** Risk reversal for cold traffic — keep aligned with Terms / refund policy. */
+export const MONEY_BACK_GUARANTEE = {
+  badge: "Risk-free",
+  title: "14-day money-back guarantee",
+  body: "Try Interview Sprint or Offer plan with confidence. If you’re not satisfied, request a full refund within 14 days of purchase — no guilt-trip forms.",
+  foot: "Applies to paid plans only. See FAQ & Terms for eligibility.",
+} as const;
+
 export const BURST_HEADLINE = "Trusted by thousands of job seekers worldwide";
 
 export const BURST_STATS = [
