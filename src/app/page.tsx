@@ -4,6 +4,7 @@ import {
   HeroSection,
   PainSection,
   HumanReviewSection,
+  DeliveryProcessSection,
   PricingSection,
   ProgramIntroSection,
   ScanAnchorSection,
@@ -36,6 +37,7 @@ export default function Home() {
       </div>
       <FounderTrustSection />
       <HumanReviewSection />
+      <DeliveryProcessSection />
       <PricingSection />
       <FaqSection />
       <FinalCtaSection />

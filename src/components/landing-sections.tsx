@@ -273,6 +273,87 @@ export function HumanReviewSection() {
   );
 }
 
+export function DeliveryProcessSection() {
+  return (
+    <section
+      id="delivery"
+      className="scroll-mt-24 border-t border-white/10 bg-[#050807] px-4 py-16 sm:px-6 sm:py-20"
+      aria-labelledby="delivery-heading"
+    >
+      <div className="mx-auto max-w-5xl">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-5">
+            <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-emerald-500/85">
+              Delivery flow
+            </p>
+            <h2
+              id="delivery-heading"
+              className="mt-4 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+            >
+              What happens after you pay?
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+              A clear, step-by-step loop — no “black box” expectations.
+            </p>
+          </div>
+
+          <div className="lg:col-span-7">
+            <ol className="grid gap-4 sm:grid-cols-2">
+              <li className="rounded-2xl border border-white/10 bg-zinc-900/30 p-6">
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-emerald-400">
+                  Step 1
+                </p>
+                <p className="mt-2 text-lg font-semibold text-white">
+                  Upload your resume &amp; target roles
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  Immediately after checkout.
+                </p>
+              </li>
+
+              <li className="rounded-2xl border border-white/10 bg-zinc-900/30 p-6">
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-emerald-400">
+                  Step 2
+                </p>
+                <p className="mt-2 text-lg font-semibold text-white">
+                  Human + AI optimization
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  We review and rewrite your resume (48–72h).
+                </p>
+              </li>
+
+              <li className="rounded-2xl border border-white/10 bg-zinc-900/30 p-6">
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-emerald-400">
+                  Step 3
+                </p>
+                <p className="mt-2 text-lg font-semibold text-white">
+                  Tailored resume pack delivered
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  You receive ATS-optimized versions ready to apply.
+                </p>
+              </li>
+
+              <li className="rounded-2xl border border-white/10 bg-zinc-900/30 p-6">
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-emerald-400">
+                  Step 4
+                </p>
+                <p className="mt-2 text-lg font-semibold text-white">
+                  Interview prep checklist
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  We send role-specific guidance.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function PricingSection() {
   return (
     <section id="pricing" className="scroll-mt-24 border-t border-white/10 px-4 py-20 sm:px-6">
