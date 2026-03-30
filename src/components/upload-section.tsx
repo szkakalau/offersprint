@@ -118,11 +118,23 @@ export function UploadSection() {
         fd.append("email", trimmed);
         fd.append("marketingOptIn", marketingOptIn ? "true" : "false");
         const res = await fetch("/api/scan", { method: "POST", body: fd });
-        const data = await res.json();
+        const raw = await res.text();
+        let data: any = null;
+        try {
+          data = raw ? JSON.parse(raw) : null;
+        } catch {
+          // Some Next.js errors (e.g. 413) may return non-JSON bodies.
+        }
+
         if (!res.ok) {
-          setError(data.error ?? "Upload failed");
+          setError(data?.error ?? `Upload failed (${res.status})`);
           return;
         }
+        if (!data) {
+          setError("Upload failed. Unexpected server response.");
+          return;
+        }
+
         const result = data as ScanResult;
         const payload: ScanSessionPayloadV2 = {
           v: 2,
@@ -133,8 +145,13 @@ export function UploadSection() {
         sessionStorage.setItem(SCAN_STORAGE_KEY, JSON.stringify(payload));
         sessionStorage.removeItem(PENDING_LEAD_KEY);
         router.push("/result");
-      } catch {
-        setError("Network error. Please try again.");
+      } catch (e) {
+        const msg = e instanceof Error ? e.message : "";
+        setError(
+          msg
+            ? `Upload failed (${msg}). Please try again.`
+            : "Upload failed. Please try again.",
+        );
       } finally {
         setBusy(false);
       }
