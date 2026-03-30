@@ -436,7 +436,7 @@ export function MoneyBackGuaranteeBanner() {
 /** Founder-led trust — placed before pricing for last-mile card conversion. */
 export function FounderTrustSection() {
   const S = FOUNDER_STORY;
-  const mailHref = `mailto:${S.contactEmail}?subject=${encodeURIComponent("Question before I buy OfferSprint")}`;
+  const mailHref = `mailto:${S.contactEmail}?subject=${encodeURIComponent("Question before I buy OfferSprinter")}`;
 
   return (
     <section

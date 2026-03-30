@@ -34,7 +34,7 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
         href="/"
         className="mt-10 inline-flex justify-center rounded-full bg-emerald-500 px-8 py-3 font-semibold text-zinc-950 hover:bg-emerald-400"
       >
-        Back to OfferSprint
+        Back to OfferSprinter
       </Link>
     </div>
   );

@@ -17,10 +17,10 @@ export type ScanSessionPayloadV2 = {
   marketingOptIn: boolean;
 };
 
-export const SCAN_STORAGE_KEY = "offersprint_scan_v1";
+export const SCAN_STORAGE_KEY = "offersprinter_scan_v1";
 
 /** Step 1 saved so refresh on step 2 can resume. */
-export const PENDING_LEAD_KEY = "offersprint_pending_lead_v1";
+export const PENDING_LEAD_KEY = "offersprinter_pending_lead_v1";
 
 export type PendingLead = {
   email: string;

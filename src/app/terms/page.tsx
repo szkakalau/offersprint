@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms for using OfferSprint.",
+  description: "Terms for using OfferSprinter.",
 };
 
 export default function TermsPage() {
@@ -18,7 +18,7 @@ export default function TermsPage() {
       <p className="mt-6 text-sm text-zinc-500">Last updated: March 2026</p>
       <div className="mt-10 space-y-6 text-zinc-300">
         <p>
-          By using OfferSprint you agree to these terms. If you do not agree,
+          By using OfferSprinter you agree to these terms. If you do not agree,
           do not use the service.
         </p>
         <h2 className="font-semibold text-white">Not legal or career advice</h2>
@@ -46,7 +46,7 @@ export default function TermsPage() {
         </p>
         <h2 className="font-semibold text-white">Limitation of liability</h2>
         <p>
-          To the maximum extent permitted by law, OfferSprint is not liable for
+          To the maximum extent permitted by law, OfferSprinter is not liable for
           indirect or consequential damages arising from use of the service.
         </p>
       </div>

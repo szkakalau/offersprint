@@ -50,7 +50,7 @@ export const ATS_BEFORE_AFTER = {
  * and add entries to `FOUNDER_SOCIAL_LINKS` when you have real profiles.
  */
 export const FOUNDER_STORY = {
-  eyebrow: "The people behind OfferSprint",
+  eyebrow: "The people behind OfferSprinter",
   title: "Real founders. Real inbox. No anonymous shell.",
   lead:
     "When you scale ads, people do one last check: who takes the money? Here’s who we are — so you’re not wiring cash into a void.",
@@ -61,7 +61,7 @@ export const FOUNDER_STORY = {
   founderTitle: "Founder · Product & engineering",
   location: "Remote-first · US / APAC hours",
   quote:
-    "I built OfferSprint after watching qualified friends get auto-rejected for invisible ATS reasons. The goal isn’t a vanity score — it’s getting you back in front of humans.",
+    "I built OfferSprinter after watching qualified friends get auto-rejected for invisible ATS reasons. The goal isn’t a vanity score — it’s getting you back in front of humans.",
   paragraphs: [
     "We’re a tiny team: shipping, support, and iteration live in the same Slack. There’s no outsourced “success team” reading scripts.",
     "Your resume is handled with encryption in transit, auto-deleted after analysis on the free scan path, and we don’t resell your file. If something breaks, you’ll hear it from us — not a ticket black hole.",
@@ -71,7 +71,7 @@ export const FOUNDER_STORY = {
     { label: "Support", value: "Founder-led inbox" },
     { label: "Refund", value: "14-day guarantee" },
   ],
-  contactEmail: "hello@offersprint.app",
+  contactEmail: "hello@offersprinter.com",
   contactLabel: "Questions before you pay?",
 } as const;
 
@@ -188,7 +188,7 @@ export const BURST_TESTIMONIALS: BurstTestimonial[] = [
   {
     kind: "featured",
     headline: "“I applied for months with zero replies.”",
-    body: "After using OfferSprint I got 4 interviews in 2 weeks. Turns out my resume was missing critical ATS keywords.",
+    body: "After using OfferSprinter I got 4 interviews in 2 weeks. Turns out my resume was missing critical ATS keywords.",
     name: "Daniel W.",
     role: "Product Manager",
     portraitId: 33,

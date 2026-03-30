@@ -24,13 +24,13 @@ const baseUrl = getAppBaseUrl();
 export const metadata: Metadata = {
   metadataBase: baseUrl ? new URL(baseUrl) : undefined,
   title: {
-    default: "OfferSprint — 14-Day Interview Rate Plan",
-    template: "%s · OfferSprint",
+    default: "OfferSprinter — 14-Day Interview Rate Plan",
+    template: "%s · OfferSprinter",
   },
   description:
     "Stop sending resumes into the void. Free ATS resume scan and a 14-day interview boost program for job seekers.",
   openGraph: {
-    title: "OfferSprint — 14-Day Interview Rate Plan",
+    title: "OfferSprinter — 14-Day Interview Rate Plan",
     description:
       "Upload your resume and discover your interview probability in about 60 seconds. ATS-focused optimization.",
     type: "website",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OfferSprint — ATS Resume Scan",
+    title: "OfferSprinter — ATS Resume Scan",
     description:
       "You're not getting interviews because your resume is failing ATS.",
   },

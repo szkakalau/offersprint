@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How OfferSprint handles your data.",
+  description: "How OfferSprinter handles your data.",
 };
 
 export default function PrivacyPage() {
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       <p className="mt-6 text-sm text-zinc-500">Last updated: March 2026</p>
       <div className="mt-10 space-y-6 text-zinc-300">
         <p>
-          OfferSprint (&quot;we&quot;) provides a resume scan and related job
+          OfferSprinter (&quot;we&quot;) provides a resume scan and related job
           search materials. This page explains how we handle information in the
           current beta.
         </p>

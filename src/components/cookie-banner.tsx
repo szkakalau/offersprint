@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const KEY = "offersprint_cookie_consent";
+const KEY = "offersprinter_cookie_consent";
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);

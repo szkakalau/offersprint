@@ -110,7 +110,7 @@ export function ProgramIntroSection() {
     <section className="border-t border-white/10 bg-gradient-to-b from-emerald-950/20 to-transparent px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold text-white sm:text-4xl">
-          Introducing OfferSprint
+          Introducing OfferSprinter
         </h2>
         <p className="mt-2 text-xl text-emerald-400/90">
           A 14-day interview boost program

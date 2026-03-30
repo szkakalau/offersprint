@@ -34,7 +34,7 @@ export default function ResultPage() {
     // Custom event for analytics / downstream tools (optional).
     queueMicrotask(() => {
       window.dispatchEvent(
-        new CustomEvent("offersprint:result_view", {
+        new CustomEvent("offersprinter:result_view", {
           detail: { hasEmail: Boolean(email) },
         }),
       );

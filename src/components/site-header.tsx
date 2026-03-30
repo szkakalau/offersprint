@@ -15,7 +15,7 @@ export function SiteHeader() {
           href="/"
           className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-white"
         >
-          OfferSprint
+          OfferSprinter
         </Link>
         <nav className="hidden items-center gap-8 text-sm text-zinc-400 md:flex">
           {nav.map((item) => (

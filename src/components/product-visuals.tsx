@@ -12,7 +12,7 @@ function BrowserChrome({ children }: { children: ReactNode }) {
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/70" />
         </span>
         <div className="mx-auto flex max-w-[min(100%,14rem)] flex-1 items-center rounded-md bg-black/60 px-2 py-1 text-center font-mono text-[10px] text-zinc-500 sm:text-xs">
-          <span className="truncate">offersprint.app/result</span>
+          <span className="truncate">OfferSprinter.com/result</span>
         </div>
       </div>
       <div className="relative bg-gradient-to-b from-zinc-900/90 to-[#070a09] p-4 sm:p-5">
