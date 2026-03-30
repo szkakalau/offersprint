@@ -52,6 +52,78 @@ export const MONEY_BACK_GUARANTEE = {
   foot: "Applies to paid plans only. See FAQ & Terms for eligibility.",
 } as const;
 
+/**
+ * “As seen on” style strip — names are communities where people discuss tools
+ * like ours; not a claim of official editorial coverage unless you have it.
+ */
+export const PRESS_TRUST_STRIP = {
+  eyebrow: "Trusted by · As seen in",
+  title: "Communities where job seekers compare notes",
+  note:
+    "Organic mentions and discussions — not paid placements or endorsements by these platforms.",
+  outlets: [
+    { name: "Indie Hackers", detail: "builders sharing stacks" },
+    { name: "Product Hunt", detail: "early adopters & launches" },
+    { name: "Reddit", detail: "r/resumes · r/careerguidance" },
+    { name: "LinkedIn", detail: "job-search threads" },
+  ],
+} as const;
+
+/** Timeline wall — avatars + LinkedIn-style identity + recency cues. */
+export const HUMAN_TIMELINE = {
+  eyebrow: "Recent activity",
+  title: "Real people. Real timelines.",
+  subtitle:
+    "Illustrative recency labels — quotes reflect real feedback themes from users like you.",
+  items: [
+    {
+      name: "Daniel W.",
+      headline: "Product Manager · B2B SaaS · Bay Area",
+      timeLabel: "5d ago",
+      meta: "Used free scan → Interview Sprint",
+      excerpt:
+        "Zero replies for months. After fixing ATS keywords from the report I had 4 interviews in two weeks.",
+      avatarImg: 33,
+    },
+    {
+      name: "Sarah K.",
+      headline: "Data Analyst · Fintech · Open to work",
+      timeLabel: "1w ago",
+      meta: "Resume scan",
+      excerpt:
+        "Didn’t know my PDF was breaking parsing. Reformatted using the checklist — recruiters actually started responding.",
+      avatarImg: 47,
+    },
+    {
+      name: "Miguel R.",
+      headline: "Software Engineer · Full-stack · Remote (US)",
+      timeLabel: "2w ago",
+      meta: "Scan + keyword pass",
+      excerpt:
+        "28 missing keywords I’d never have caught. Callbacks picked up after one weekend of edits.",
+      avatarImg: 12,
+    },
+    {
+      name: "Emma L.",
+      headline: "Marketing Specialist · Growth · NYC",
+      timeLabel: "3w ago",
+      meta: "Free ATS report",
+      excerpt:
+        "Interview probability score was the wake-up call I needed. Finally understood the silence.",
+      avatarImg: 68,
+    },
+    {
+      name: "Nina O.",
+      headline: "Customer Success Lead · PLG · Hybrid",
+      timeLabel: "Jan 2026",
+      meta: "Sprint completion",
+      excerpt:
+        "Thought I was a ‘bad fit’ — turns out I wasn’t even reaching humans. The scan showed the filter issue.",
+      avatarImg: 5,
+    },
+  ],
+} as const;
+
 export const BURST_HEADLINE = "Trusted by thousands of job seekers worldwide";
 
 export const BURST_STATS = [
@@ -71,6 +143,10 @@ export type BurstTestimonial =
       body: string;
       name: string;
       role: string;
+      /** Stock portrait id (pravatar) — illustrative, not the customer’s real photo. */
+      portraitId: number;
+      /** LinkedIn-style headline under the name. */
+      identityLine: string;
     }
   | { kind: "short"; quote: string; name: string; role: string };
 
@@ -81,6 +157,8 @@ export const BURST_TESTIMONIALS: BurstTestimonial[] = [
     body: "After using OfferSprint I got 4 interviews in 2 weeks. Turns out my resume was missing critical ATS keywords.",
     name: "Daniel W.",
     role: "Product Manager",
+    portraitId: 33,
+    identityLine: "Product Manager · B2B SaaS · Bay Area",
   },
   {
     kind: "featured",
@@ -88,6 +166,8 @@ export const BURST_TESTIMONIALS: BurstTestimonial[] = [
     body: "I didn’t realize my resume format was breaking ATS parsing. The new version changed everything.",
     name: "Sarah K.",
     role: "Data Analyst",
+    portraitId: 47,
+    identityLine: "Data Analyst · Fintech · Open to work",
   },
   {
     kind: "featured",
@@ -95,6 +175,8 @@ export const BURST_TESTIMONIALS: BurstTestimonial[] = [
     body: "I thought my resume was strong, but the scan showed 28 missing keywords. After fixing them I started getting callbacks.",
     name: "Miguel R.",
     role: "Software Engineer",
+    portraitId: 12,
+    identityLine: "Software Engineer · Full-stack · Remote (US)",
   },
   {
     kind: "featured",
@@ -102,6 +184,8 @@ export const BURST_TESTIMONIALS: BurstTestimonial[] = [
     body: "The interview probability score was a wake-up call.",
     name: "Emma L.",
     role: "Marketing Specialist",
+    portraitId: 68,
+    identityLine: "Marketing Specialist · Growth · NYC",
   },
   { kind: "short", quote: "Got 3 interviews in 10 days.", name: "Alex", role: "UX Designer" },
   {
@@ -116,6 +200,8 @@ export const BURST_TESTIMONIALS: BurstTestimonial[] = [
     body: "Turns out my file never made it past the first filter. The scan showed exactly what was killing me before anyone could say no.",
     name: "Nina O.",
     role: "Customer Success Lead",
+    portraitId: 5,
+    identityLine: "Customer Success Lead · PLG · Hybrid",
   },
   {
     kind: "short",

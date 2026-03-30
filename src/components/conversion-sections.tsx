@@ -16,33 +16,39 @@ function BadgeFace({
   title,
   sub,
   pulse,
+  className,
 }: {
   icon: string;
   title: string;
   sub: string;
   pulse?: boolean;
+  className?: string;
 }) {
   return (
     <div
-      className={`relative flex min-w-0 items-start gap-3 rounded-2xl border border-emerald-500/25 bg-gradient-to-br from-zinc-900/90 to-black/60 px-4 py-3 shadow-[0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-sm ${
+      className={`relative flex h-full min-h-0 min-w-0 items-start gap-4 rounded-2xl border border-emerald-500/25 bg-gradient-to-br from-zinc-900/90 to-black/60 px-5 py-4 shadow-[0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-sm sm:px-6 sm:py-5 ${
         pulse ? "os-security-pulse" : ""
-      }`}
+      } ${className ?? ""}`}
     >
       <span
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-xl ring-1 ring-emerald-500/30"
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-[1.35rem] leading-none ring-1 ring-emerald-500/30 sm:h-[3.25rem] sm:w-[3.25rem] sm:text-2xl"
         aria-hidden
       >
         {icon}
       </span>
-      <div className="min-w-0 pt-0.5">
-        <p className="text-sm font-semibold tracking-tight text-white">{title}</p>
-        <p className="mt-0.5 text-xs leading-snug text-zinc-500">{sub}</p>
+      <div className="min-w-0 flex-1 pt-0.5">
+        <p className="text-[0.9375rem] font-semibold leading-snug tracking-tight text-white sm:text-base">
+          {title}
+        </p>
+        <p className="mt-2 text-xs leading-relaxed text-zinc-500 sm:text-[0.8125rem] sm:leading-relaxed">
+          {sub}
+        </p>
       </div>
     </div>
   );
 }
 
-/** Compact horizontal strip — Hero under CTA. */
+/** Hero trust row — 2×2 grid so cards aren’t squeezed in the half-width column. */
 export function SecurityBadgeStrip() {
   return (
     <div
@@ -50,12 +56,12 @@ export function SecurityBadgeStrip() {
       role="region"
       aria-label="Security and privacy guarantees"
     >
-      <p className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-600 lg:text-left">
+      <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-500 lg:text-left">
         Your file stays private
       </p>
-      <ul className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] lg:flex-wrap lg:justify-start lg:overflow-visible [&::-webkit-scrollbar]:hidden">
+      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
         {SECURITY_BADGES.map((b, i) => (
-          <li key={b.title} className="min-w-[13.5rem] shrink-0 snap-start lg:min-w-0 lg:flex-1 lg:snap-none">
+          <li key={b.title} className="min-h-0 min-w-0">
             <BadgeFace {...b} pulse={i === 0} />
           </li>
         ))}
@@ -72,13 +78,13 @@ export function ScanSecurityTrustBlock() {
       role="region"
       aria-label="Privacy and security"
     >
-      <div className="rounded-[0.9rem] border border-white/5 bg-black/20 px-4 py-4 sm:px-5 sm:py-5">
-        <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-emerald-400/90 sm:text-left">
+      <div className="rounded-[0.9rem] border border-white/5 bg-black/20 px-5 py-5 sm:px-6 sm:py-6">
+        <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-emerald-400/90 sm:text-left">
           Security &amp; privacy
         </p>
-        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        <ul className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
           {SECURITY_BADGES.map((b, i) => (
-            <li key={b.title}>
+            <li key={b.title} className="min-h-0">
               <BadgeFace {...b} pulse={i === 0} />
             </li>
           ))}

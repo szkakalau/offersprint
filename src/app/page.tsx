@@ -14,12 +14,13 @@ import {
   ReportShowcaseSection,
   UsageFlowSection,
 } from "@/components/conversion-sections";
-import { SocialProofBurstSection } from "@/components/social-proof";
+import { PressTrustStrip, SocialProofBurstSection } from "@/components/social-proof";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+      <PressTrustStrip />
       <SocialProofBurstSection />
       <PainSection />
       <UsageFlowSection />
