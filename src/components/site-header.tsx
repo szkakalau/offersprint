@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const nav = [
   { href: "/#scan", label: "Scan resume" },
-  { href: "/pricing#program", label: "Program & pricing" },
+  { href: "/#program", label: "Program" },
   { href: "/#faq", label: "FAQ" },
 ];
 

@@ -2,7 +2,6 @@ import Link from "next/link";
 import {
   HeroReportMock,
   AtsPipelineDiagram,
-  PreviewReportMock,
   UploadFlowStrip,
 } from "@/components/product-visuals";
 import { HeroSocialProofLine } from "@/components/social-proof";
@@ -88,27 +87,6 @@ export function PainSection() {
   );
 }
 
-export function PreviewSection() {
-  return (
-    <section className="px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-3xl">
-        <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold text-white sm:text-4xl">
-          Here&apos;s what you&apos;ll discover
-        </h2>
-        <p className="mt-3 text-sm text-zinc-500">
-          Illustrative UI — not your file
-        </p>
-        <div className="mt-10">
-          <PreviewReportMock />
-        </div>
-        <p className="mt-6 text-center text-sm text-zinc-500">
-          This step helps you visualize the gap — before you invest weeks applying.
-        </p>
-      </div>
-    </section>
-  );
-}
-
 export function ProgramIntroSection() {
   return (
     <section className="border-t border-white/10 bg-gradient-to-b from-emerald-950/20 to-transparent px-4 py-20 sm:px-6">
@@ -129,7 +107,7 @@ export function ProgramIntroSection() {
 
 export function SprintContentSection() {
   return (
-    <section className="scroll-mt-24 px-4 py-12 sm:px-6">
+    <section className="px-4 py-12 sm:px-6">
       <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
         <div className="rounded-2xl border border-white/10 bg-zinc-900/40 p-8">
           <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400">

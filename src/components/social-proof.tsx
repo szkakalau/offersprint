@@ -1,31 +1,29 @@
 import {
-  HERO_SOCIAL_LINE,
-  MEDIA_MENTIONS,
-  TESTIMONIALS,
-  TRUST_STATS,
-  TRUST_STATS_NOTE,
-} from "@/content/social-proof";
+  BURST_HEADLINE,
+  BURST_STATS,
+  BURST_STATS_NOTE,
+  BURST_TESTIMONIALS,
+} from "@/content/conversion-copy";
+import { HERO_SOCIAL_LINE } from "@/content/social-proof";
 
-function Stars({ n }: { n: 4 | 5 }) {
+function StarRow() {
   return (
-    <p className="flex gap-0.5 text-emerald-400" aria-label={`${n} out of 5 stars`}>
-      {Array.from({ length: 5 }, (_, i) => (
-        <span key={i} className={i < n ? "opacity-100" : "opacity-25"}>
-          ★
-        </span>
+    <p className="flex gap-0.5 text-amber-400/95" aria-label="5 out of 5 stars">
+      {"★★★★★".split("").map((s, i) => (
+        <span key={i}>{s}</span>
       ))}
     </p>
   );
 }
 
-function InitialAvatar({ name }: { name: string }) {
+function InitialMark({ name }: { name: string }) {
   const parts = name.replace(/\./g, "").split(/\s+/).filter(Boolean);
   const a = parts[0]?.[0] ?? "?";
   const b = parts[1]?.[0] ?? "";
   const label = (a + b).toUpperCase().slice(0, 2);
   return (
     <span
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-semibold text-emerald-300 ring-1 ring-emerald-500/25"
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-950/40 text-xs font-bold text-emerald-200 ring-1 ring-emerald-500/25"
       aria-hidden
     >
       {label}
@@ -36,108 +34,86 @@ function InitialAvatar({ name }: { name: string }) {
 export function HeroSocialProofLine() {
   return (
     <p className="mt-8 text-sm font-medium text-zinc-400">
-      <span className="text-emerald-400/90">{HERO_SOCIAL_LINE}</span>
+      <span className="bg-gradient-to-r from-emerald-200/90 to-emerald-400/80 bg-clip-text text-transparent">
+        {HERO_SOCIAL_LINE}
+      </span>
     </p>
   );
 }
 
-export function TrustSignalsSection() {
+export function SocialProofBurstSection() {
+  const featured = BURST_TESTIMONIALS.filter((t) => t.kind === "featured");
+  const shorts = BURST_TESTIMONIALS.filter((t) => t.kind === "short");
+
   return (
     <section
-      className="border-y border-white/10 bg-zinc-950/40 px-4 py-14 sm:px-6"
-      aria-labelledby="trust-signals-heading"
+      className="relative overflow-hidden border-y border-emerald-500/15 bg-[#050807] px-4 py-20 sm:px-6"
+      aria-labelledby="burst-trust-heading"
     >
-      <div className="mx-auto max-w-5xl">
-        <h2 id="trust-signals-heading" className="sr-only">
-          Trust and usage signals
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        }}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-emerald-950/30 via-transparent to-transparent" />
+      <div className="relative mx-auto max-w-6xl">
+        <h2
+          id="burst-trust-heading"
+          className="text-center font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.5rem] md:leading-tight"
+        >
+          {BURST_HEADLINE}
         </h2>
-        <div className="grid gap-10 sm:grid-cols-3 sm:gap-6">
-          {TRUST_STATS.map((s) => (
-            <div key={s.label} className="text-center sm:text-left">
-              <p className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+
+        <div className="os-stagger mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible lg:grid-cols-4">
+          {BURST_STATS.map((s) => (
+            <div
+              key={s.label}
+              className="min-w-[11rem] shrink-0 snap-center rounded-2xl border border-white/10 bg-zinc-900/50 px-5 py-5 text-center shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] sm:min-w-0"
+            >
+              <p className="font-[family-name:var(--font-display)] text-2xl font-semibold text-white sm:text-3xl">
                 {s.value}
               </p>
-              <p className="mt-2 text-sm leading-snug text-zinc-500">{s.label}</p>
+              <p className="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">
+                {s.label}
+              </p>
             </div>
           ))}
         </div>
-        <p className="mt-8 text-center text-xs text-zinc-600 sm:text-left">{TRUST_STATS_NOTE}</p>
-        <p className="mt-4 text-center text-xs text-zinc-600 sm:text-left">
-          <span className="text-zinc-500">Privacy:</span> We don&apos;t sell your resume or
-          share it with employers.
-        </p>
+        <p className="mt-6 text-center text-xs text-zinc-600">{BURST_STATS_NOTE}</p>
 
-        <div className="mt-14 border-t border-white/10 pt-12">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-            Mentioned &amp; shared in
-          </p>
-          <ul className="mt-8 flex flex-wrap items-end justify-center gap-x-10 gap-y-8 sm:gap-x-14">
-            {MEDIA_MENTIONS.map((m) => {
-              const inner = (
-                <>
-                  <span className="block font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-zinc-200 sm:text-xl">
-                    {m.name}
-                  </span>
-                  <span className="mt-1 block text-xs text-zinc-600">{m.detail}</span>
-                </>
-              );
-              return (
-                <li key={m.name}>
-                  {m.href ? (
-                    <a
-                      href={m.href}
-                      className="block text-center transition hover:text-emerald-300"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {inner}
-                    </a>
-                  ) : (
-                    <span className="block text-center opacity-90">{inner}</span>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function TestimonialsSection() {
-  return (
-    <section className="px-4 py-20 sm:px-6" aria-labelledby="testimonials-heading">
-      <div className="mx-auto max-w-5xl">
-        <h2
-          id="testimonials-heading"
-          className="text-center font-[family-name:var(--font-display)] text-3xl font-semibold text-white sm:text-4xl"
-        >
-          What job seekers say
-        </h2>
-        <p className="mx-auto mt-3 max-w-lg text-center text-sm text-zinc-500">
-          Real feedback from early users and beta participants — individual results vary.
-        </p>
-        <ul className="mt-12 grid gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((t) => (
+        <ul className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-12 lg:gap-6">
+          {featured.map((t) => (
             <li
-              key={t.name}
-              className="flex flex-col rounded-2xl border border-white/10 bg-zinc-900/35 p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]"
+              key={t.name + t.headline}
+              className="flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-zinc-900/80 to-zinc-950/90 p-6 shadow-[0_24px_60px_-40px_rgba(16,185,129,0.35)] lg:col-span-6 lg:first:border-emerald-500/25"
             >
-              <Stars n={t.rating} />
-              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-zinc-300">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
+              <StarRow />
+              <p className="mt-4 font-[family-name:var(--font-display)] text-lg font-semibold leading-snug text-white">
+                {t.headline}
+              </p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-400">{t.body}</p>
               <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
-                <InitialAvatar name={t.name} />
+                <InitialMark name={t.name} />
                 <div>
-                  <p className="font-medium text-white">{t.name}</p>
-                  <p className="text-xs text-zinc-500">
-                    {t.role}
-                    <span className="text-zinc-600"> · {t.locale}</span>
-                  </p>
+                  <p className="text-sm font-medium text-white">— {t.name}</p>
+                  <p className="text-xs text-zinc-500">{t.role}</p>
                 </div>
               </div>
+            </li>
+          ))}
+          {shorts.map((t) => (
+            <li
+              key={t.name + t.quote}
+              className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/40 p-5 lg:col-span-6"
+            >
+              <StarRow />
+              <p className="mt-3 font-[family-name:var(--font-display)] text-base font-medium text-zinc-200">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+              <p className="mt-4 text-sm text-zinc-500">
+                — {t.name}, {t.role}
+              </p>
             </li>
           ))}
         </ul>

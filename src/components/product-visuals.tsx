@@ -150,7 +150,7 @@ export function PreviewReportMock() {
           <p className="mt-8 text-sm font-medium text-zinc-300">Biggest issues found</p>
           <ul className="mt-3 space-y-2 text-sm text-zinc-400">
             <li className="flex gap-2">
-              <span className="text-red-400/90">▸</span> Missing critical role keywords
+              <span className="text-red-400/90">▸</span> Missing 23 role-specific keywords
             </li>
             <li className="flex gap-2">
               <span className="text-amber-400/90">▸</span> Experience not aligned with target role
@@ -164,7 +164,7 @@ export function PreviewReportMock() {
           </ul>
           <p className="mt-8 border-t border-white/10 pt-6 text-sm text-zinc-400">
             After optimization (illustrative):{" "}
-            <span className="font-semibold text-emerald-400">expected interview rate: 62%</span>
+            <span className="font-semibold text-emerald-400">estimated interview probability: 63%</span>
           </p>
           </div>
         </BrowserChrome>

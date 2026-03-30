@@ -1,5 +1,6 @@
 "use client";
 
+import { ScanSecurityTrustBlock } from "@/components/conversion-sections";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
@@ -273,6 +274,7 @@ export function UploadSection() {
               Scan resume free
             </span>
           </div>
+          <ScanSecurityTrustBlock />
         </>
       )}
     </div>
