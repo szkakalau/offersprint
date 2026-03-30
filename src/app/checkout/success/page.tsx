@@ -25,6 +25,12 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
         </p>
       ) : null}
       <Link
+        href="/delivery"
+        className="mt-8 inline-flex justify-center rounded-full bg-zinc-800 px-8 py-3 font-semibold text-white hover:bg-zinc-700"
+      >
+        Complete delivery form
+      </Link>
+      <Link
         href="/"
         className="mt-10 inline-flex justify-center rounded-full bg-emerald-500 px-8 py-3 font-semibold text-zinc-950 hover:bg-emerald-400"
       >
