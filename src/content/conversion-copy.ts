@@ -58,6 +58,19 @@ export const BURST_TESTIMONIALS: BurstTestimonial[] = [
     name: "Priya",
     role: "Finance Analyst",
   },
+  {
+    kind: "featured",
+    headline: "“I thought silence meant ‘bad fit.’”",
+    body: "Turns out my file never made it past the first filter. The scan showed exactly what was killing me before anyone could say no.",
+    name: "Nina O.",
+    role: "Customer Success Lead",
+  },
+  {
+    kind: "short",
+    quote: "Saw my ATS score and fixed it same night — replies started Monday.",
+    name: "Tom",
+    role: "Sales Director",
+  },
 ];
 
 export const REAL_RESULTS_HEADLINE = "Real results from real job searches";
@@ -118,8 +131,26 @@ export const REPORT_SHOWCASE = {
   ctaButton: "Scan my resume free",
 } as const;
 
-export const SCAN_SECURITY_LINES = [
-  { icon: "🔒", text: "Your resume is securely processed" },
-  { icon: "🔐", text: "Files are automatically deleted after analysis" },
-  { icon: "🛡", text: "We never share your data" },
+/** Visual security anchors — hero strip + upload panel. */
+export const SECURITY_BADGES = [
+  {
+    icon: "🔒",
+    title: "Secure processing",
+    sub: "TLS-encrypted handling",
+  },
+  {
+    icon: "🔐",
+    title: "Files auto-deleted",
+    sub: "Removed after analysis",
+  },
+  {
+    icon: "🛡",
+    title: "Encrypted upload",
+    sub: "Private scan pipeline",
+  },
+  {
+    icon: "✓",
+    title: "Never sold or shared",
+    sub: "Your data stays yours",
+  },
 ] as const;

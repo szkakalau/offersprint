@@ -4,6 +4,7 @@ import {
   AtsPipelineDiagram,
   UploadFlowStrip,
 } from "@/components/product-visuals";
+import { SecurityBadgeStrip } from "@/components/conversion-sections";
 import { HeroSocialProofLine } from "@/components/social-proof";
 import { UploadSection } from "@/components/upload-section";
 
@@ -11,35 +12,49 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pt-16 md:pb-28">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(16,185,129,0.22),transparent)]" />
+      <div className="pointer-events-none absolute -left-1/4 top-1/3 h-64 w-64 rounded-full bg-red-950/20 blur-[100px]" />
       <div className="relative mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-12">
           <div className="text-center lg:text-left">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400/90">
-              OfferSprint — 14-day interview rate plan
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-red-400/85">
+              Ghosted · Auto-rejected · Invisible
             </p>
-            <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl">
-              You&apos;re not getting interviews because your resume is failing ATS.
+            <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
+              You&apos;re being{" "}
+              <em className="not-italic text-zinc-100 underline decoration-red-500/50 decoration-2 underline-offset-4">
+                ghosted
+              </em>
+              —and often{" "}
+              <span className="text-red-300/95">
+                rejected automatically
+              </span>{" "}
+              before a recruiter ever reads you.
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400 sm:text-xl lg:mx-0">
-              Stop sending resumes into the void. Upload your resume and discover your
-              interview probability in about 60 seconds.
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl lg:mx-0">
+              Every week you send resumes into the{" "}
+              <span className="font-medium text-zinc-300">void</span>. ATS filters kill most
+              applications in seconds —{" "}
+              <span className="text-zinc-200">silently</span>. See your gap in{" "}
+              <strong className="font-semibold text-emerald-400/90">~60 seconds</strong>{" "}
+              with a free scan.
             </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap lg:justify-start">
               <a
                 href="#scan"
                 className="inline-flex w-full items-center justify-center rounded-full bg-emerald-500 px-8 py-4 text-base font-bold text-zinc-950 shadow-[0_0_40px_-8px_rgba(16,185,129,0.6)] transition hover:bg-emerald-400 sm:w-auto"
               >
                 Scan resume free
               </a>
-          <p className="text-sm text-zinc-500">
-            Email + resume · Results in ~60s · No account password
-          </p>
+              <p className="text-sm text-zinc-500">
+                Email + resume · No password · Instant score
+              </p>
             </div>
+            <SecurityBadgeStrip />
             <HeroSocialProofLine />
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-zinc-500 lg:justify-start">
-              <span>Designed for competitive job markets</span>
+              <span>Built for brutal job markets</span>
               <span className="hidden sm:inline">·</span>
-              <span>Private scan — we don&apos;t require an account</span>
+              <span>Private scan — we don&apos;t sell your file</span>
             </div>
           </div>
           <div className="flex justify-center lg:justify-end">

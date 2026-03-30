@@ -3,27 +3,83 @@ import {
   REAL_RESULTS_CARDS,
   REAL_RESULTS_HEADLINE,
   REPORT_SHOWCASE,
-  SCAN_SECURITY_LINES,
+  SECURITY_BADGES,
 } from "@/content/conversion-copy";
 import { PreviewReportMock } from "@/components/product-visuals";
 
-export function ScanSecurityTrustBlock() {
+function BadgeFace({
+  icon,
+  title,
+  sub,
+  pulse,
+}: {
+  icon: string;
+  title: string;
+  sub: string;
+  pulse?: boolean;
+}) {
   return (
     <div
-      className="mt-8 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-950/25 to-black/40 px-4 py-4 sm:px-5"
-      role="region"
-      aria-label="Privacy and security"
+      className={`relative flex min-w-0 items-start gap-3 rounded-2xl border border-emerald-500/25 bg-gradient-to-br from-zinc-900/90 to-black/60 px-4 py-3 shadow-[0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-sm ${
+        pulse ? "os-security-pulse" : ""
+      }`}
     >
-      <ul className="space-y-2.5 text-sm text-zinc-400">
-        {SCAN_SECURITY_LINES.map((line) => (
-          <li key={line.text} className="flex gap-3">
-            <span className="shrink-0 opacity-90" aria-hidden>
-              {line.icon}
-            </span>
-            <span>{line.text}</span>
+      <span
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-xl ring-1 ring-emerald-500/30"
+        aria-hidden
+      >
+        {icon}
+      </span>
+      <div className="min-w-0 pt-0.5">
+        <p className="text-sm font-semibold tracking-tight text-white">{title}</p>
+        <p className="mt-0.5 text-xs leading-snug text-zinc-500">{sub}</p>
+      </div>
+    </div>
+  );
+}
+
+/** Compact horizontal strip — Hero under CTA. */
+export function SecurityBadgeStrip() {
+  return (
+    <div
+      className="mt-10 w-full"
+      role="region"
+      aria-label="Security and privacy guarantees"
+    >
+      <p className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-600 lg:text-left">
+        Your file stays private
+      </p>
+      <ul className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] lg:flex-wrap lg:justify-start lg:overflow-visible [&::-webkit-scrollbar]:hidden">
+        {SECURITY_BADGES.map((b, i) => (
+          <li key={b.title} className="min-w-[13.5rem] shrink-0 snap-start lg:min-w-0 lg:flex-1 lg:snap-none">
+            <BadgeFace {...b} pulse={i === 0} />
           </li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+/** Larger grid — upload area. */
+export function ScanSecurityTrustBlock() {
+  return (
+    <div
+      className="mt-8 overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-emerald-950/35 via-black/50 to-black/70 p-1 shadow-[0_0_48px_-20px_rgba(16,185,129,0.35)]"
+      role="region"
+      aria-label="Privacy and security"
+    >
+      <div className="rounded-[0.9rem] border border-white/5 bg-black/20 px-4 py-4 sm:px-5 sm:py-5">
+        <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-emerald-400/90 sm:text-left">
+          Security &amp; privacy
+        </p>
+        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+          {SECURITY_BADGES.map((b, i) => (
+            <li key={b.title}>
+              <BadgeFace {...b} pulse={i === 0} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
