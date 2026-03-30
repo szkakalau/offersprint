@@ -1,6 +1,3 @@
-import mammoth from "mammoth";
-import { PDFParse } from "pdf-parse";
-
 const MAX_BYTES = 5 * 1024 * 1024;
 
 export async function extractTextFromBuffer(
@@ -14,6 +11,9 @@ export async function extractTextFromBuffer(
 
   const lower = name.toLowerCase();
   if (mime.includes("pdf") || lower.endsWith(".pdf")) {
+    // Dynamic import so module-loading errors become request-level errors
+    // (instead of Next returning a generic 500 HTML page).
+    const { PDFParse } = await import("pdf-parse");
     const parser = new PDFParse({ data: buffer });
     try {
       const textResult = await parser.getText();
@@ -29,6 +29,8 @@ export async function extractTextFromBuffer(
     lower.endsWith(".docx") ||
     lower.endsWith(".doc")
   ) {
+    const mammothMod = await import("mammoth");
+    const mammoth = (mammothMod as any).default ?? mammothMod;
     const result = await mammoth.extractRawText({ buffer });
     return result.value ?? "";
   }
