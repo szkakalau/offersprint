@@ -10,6 +10,7 @@ import {
 } from "@/components/landing-sections";
 import {
   AtsBeforeAfterSection,
+  FounderTrustSection,
   RealResultsDataSection,
   ReportShowcaseSection,
   UsageFlowSection,
@@ -32,6 +33,7 @@ export default function Home() {
         <ProgramIntroSection />
         <SprintContentSection />
       </div>
+      <FounderTrustSection />
       <PricingSection />
       <FaqSection />
       <FinalCtaSection />

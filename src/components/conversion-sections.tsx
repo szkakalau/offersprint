@@ -2,6 +2,8 @@ import { Fragment } from "react";
 import Link from "next/link";
 import {
   ATS_BEFORE_AFTER,
+  FOUNDER_SOCIAL_LINKS,
+  FOUNDER_STORY,
   MONEY_BACK_GUARANTEE,
   REAL_RESULTS_CARDS,
   REAL_RESULTS_HEADLINE,
@@ -428,5 +430,142 @@ export function MoneyBackGuaranteeBanner() {
         </div>
       </div>
     </div>
+  );
+}
+
+/** Founder-led trust — placed before pricing for last-mile card conversion. */
+export function FounderTrustSection() {
+  const S = FOUNDER_STORY;
+  const mailHref = `mailto:${S.contactEmail}?subject=${encodeURIComponent("Question before I buy OfferSprint")}`;
+
+  return (
+    <section
+      id="founder"
+      className="relative scroll-mt-24 overflow-hidden border-t border-white/10 px-4 py-24 sm:px-6"
+      aria-labelledby="founder-trust-heading"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.22]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        }}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-emerald-950/25 via-transparent to-black/40" />
+      <div className="pointer-events-none absolute -left-1/4 top-1/3 h-72 w-72 rounded-full bg-emerald-500/10 blur-[120px]" />
+
+      <div className="relative mx-auto max-w-6xl">
+        <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-5">
+            <figure className="relative mx-auto max-w-sm lg:mx-0">
+              <div
+                className="absolute -inset-1 rounded-[1.35rem] bg-gradient-to-br from-emerald-500/35 via-transparent to-amber-500/15 opacity-80 blur-sm"
+                aria-hidden
+              />
+              <div className="relative rotate-[1.5deg] rounded-3xl border border-white/10 bg-zinc-900/50 p-1.5 shadow-[0_32px_80px_-40px_rgba(16,185,129,0.45)]">
+                <div className="overflow-hidden rounded-2xl ring-1 ring-white/10">
+                  <img
+                    src={`https://i.pravatar.cc/520?img=${S.portraitImgId}`}
+                    alt=""
+                    width={520}
+                    height={520}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-[4/5] w-full object-cover"
+                  />
+                </div>
+              </div>
+              <figcaption className="mt-4 text-center text-[11px] leading-relaxed text-zinc-600 lg:text-left">
+                {S.portraitNote}
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="lg:col-span-7">
+            <p className="text-[11px] font-bold uppercase tracking-[0.26em] text-emerald-500/90">
+              {S.eyebrow}
+            </p>
+            <h2
+              id="founder-trust-heading"
+              className="mt-4 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.35rem] md:leading-[1.12]"
+            >
+              {S.title}
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-zinc-400 sm:text-lg">{S.lead}</p>
+
+            <blockquote className="relative mt-8 border-l-[3px] border-emerald-500/70 py-1 pl-6 pr-2">
+              <span
+                className="font-[family-name:var(--font-display)] text-4xl leading-none text-emerald-500/25"
+                aria-hidden
+              >
+                &ldquo;
+              </span>
+              <p className="-mt-4 font-[family-name:var(--font-display)] text-lg font-medium leading-relaxed text-zinc-200 sm:text-xl">
+                {S.quote}
+              </p>
+            </blockquote>
+
+            <div className="mt-8 border-t border-white/10 pt-8">
+              <p className="font-[family-name:var(--font-display)] text-xl font-semibold text-white">
+                {S.founderName}
+              </p>
+              <p className="mt-1 text-sm font-medium text-emerald-400/90">{S.founderTitle}</p>
+              <p className="mt-1 text-xs text-zinc-500">{S.location}</p>
+            </div>
+
+            <div className="mt-8 space-y-4 text-sm leading-relaxed text-zinc-400">
+              {S.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+
+            <ul className="mt-10 grid gap-3 sm:grid-cols-3">
+              {S.facts.map((f) => (
+                <li
+                  key={f.label}
+                  className="rounded-2xl border border-white/[0.07] bg-black/30 px-4 py-4 text-center sm:text-left"
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">
+                    {f.label}
+                  </p>
+                  <p className="mt-2 font-[family-name:var(--font-display)] text-sm font-semibold text-white">
+                    {f.value}
+                  </p>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                  {S.contactLabel}
+                </p>
+                <a
+                  href={mailHref}
+                  className="mt-2 inline-flex font-[family-name:var(--font-display)] text-lg font-semibold text-emerald-400 transition hover:text-emerald-300"
+                >
+                  {S.contactEmail}
+                </a>
+              </div>
+              {FOUNDER_SOCIAL_LINKS.length > 0 ? (
+                <ul className="flex flex-wrap gap-2">
+                  {FOUNDER_SOCIAL_LINKS.map((link) => (
+                    <li key={link.href}>
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-zinc-300 transition hover:border-emerald-500/35 hover:text-white"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

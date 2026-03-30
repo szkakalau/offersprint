@@ -44,6 +44,40 @@ export const ATS_BEFORE_AFTER = {
   afterNote: "Stronger parse + keyword coverage — passes more ATS gates.",
 } as const;
 
+/**
+ * Founder / company — high-intent users check this before paying at scale.
+ * Edit `founderName`, `contactEmail`, `portraitImgId` (or swap `<img>` for a static file),
+ * and add entries to `FOUNDER_SOCIAL_LINKS` when you have real profiles.
+ */
+export const FOUNDER_STORY = {
+  eyebrow: "The people behind OfferSprint",
+  title: "Real founders. Real inbox. No anonymous shell.",
+  lead:
+    "When you scale ads, people do one last check: who takes the money? Here’s who we are — so you’re not wiring cash into a void.",
+  portraitImgId: 64,
+  portraitNote:
+    "Stock portrait for layout — swap `portraitImgId` or replace with your image URL in code when ready.",
+  founderName: "Castro Liu",
+  founderTitle: "Founder · Product & engineering",
+  location: "Remote-first · US / APAC hours",
+  quote:
+    "I built OfferSprint after watching qualified friends get auto-rejected for invisible ATS reasons. The goal isn’t a vanity score — it’s getting you back in front of humans.",
+  paragraphs: [
+    "We’re a tiny team: shipping, support, and iteration live in the same Slack. There’s no outsourced “success team” reading scripts.",
+    "Your resume is handled with encryption in transit, auto-deleted after analysis on the free scan path, and we don’t resell your file. If something breaks, you’ll hear it from us — not a ticket black hole.",
+  ],
+  facts: [
+    { label: "Ship speed", value: "Weekly releases" },
+    { label: "Support", value: "Founder-led inbox" },
+    { label: "Refund", value: "14-day guarantee" },
+  ],
+  contactEmail: "hello@offersprint.app",
+  contactLabel: "Questions before you pay?",
+} as const;
+
+/** Optional — LinkedIn / X / personal site. Empty until you add real URLs. */
+export const FOUNDER_SOCIAL_LINKS: { label: string; href: string }[] = [];
+
 /** Risk reversal for cold traffic — keep aligned with Terms / refund policy. */
 export const MONEY_BACK_GUARANTEE = {
   badge: "Risk-free",
