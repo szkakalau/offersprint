@@ -127,7 +127,13 @@ export function UploadSection() {
         }
 
         if (!res.ok) {
-          setError(data?.error ?? `Upload failed (${res.status})`);
+          const rawPreview = raw?.slice(0, 200).trim();
+          setError(
+            data?.error ??
+              (rawPreview
+                ? `Upload failed (${res.status}): ${rawPreview}`
+                : `Upload failed (${res.status})`),
+          );
           return;
         }
         if (!data) {

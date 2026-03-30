@@ -53,6 +53,17 @@ export async function POST(request: Request) {
     return NextResponse.json(result);
   } catch (e) {
     const message = e instanceof Error ? e.message : "Scan failed";
+    console.error("[scan] failed", {
+      message,
+      name: (() => {
+        try {
+          const form = (e as any)?.form;
+          return form?.name ?? undefined;
+        } catch {
+          return undefined;
+        }
+      })(),
+    });
     return NextResponse.json({ error: message }, { status: 400 });
   }
 }
