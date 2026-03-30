@@ -216,6 +216,63 @@ function CheckoutButton({
   );
 }
 
+export function HumanReviewSection() {
+  return (
+    <section
+      id="human-review"
+      className="scroll-mt-24 border-t border-white/10 bg-gradient-to-b from-[#070a09] to-transparent px-4 py-16 sm:px-6 sm:py-20"
+      aria-labelledby="human-review-heading"
+    >
+      <div className="mx-auto max-w-5xl">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-5">
+            <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-emerald-500/85">
+              Early beta
+            </p>
+            <h2
+              id="human-review-heading"
+              className="mt-4 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+            >
+              🧑‍💼 Human Resume Review Included
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+              During our early beta, every paid plan includes manual review
+              and optimization by our team.
+            </p>
+          </div>
+
+          <div className="lg:col-span-7">
+            <div className="relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-gradient-to-br from-emerald-950/20 via-black/30 to-black/40 p-6 shadow-[0_0_60px_-24px_rgba(16,185,129,0.25)] sm:p-8">
+              <div className="pointer-events-none absolute inset-0 opacity-[0.18]" style={{ background: "radial-gradient(120% 80% at 20% 0%, rgba(16,185,129,0.35), transparent 60%)" }} />
+              <p className="relative text-sm font-semibold text-white">
+                Instead of fully automated results, we personally:
+              </p>
+              <ul className="relative mt-4 space-y-3 text-sm text-zinc-300 sm:text-[0.98rem]">
+                <li className="flex gap-3">
+                  <span className="text-emerald-400">•</span>
+                  <span>Rewrite and optimize your resume</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-emerald-400">•</span>
+                  <span>Tailor it to real job descriptions</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-emerald-400">•</span>
+                  <span>Prepare your application pack</span>
+                </li>
+              </ul>
+
+              <p className="relative mt-6 text-xs text-zinc-600">
+                This helps us train the system and deliver better results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function PricingSection() {
   return (
     <section id="pricing" className="scroll-mt-24 border-t border-white/10 px-4 py-20 sm:px-6">

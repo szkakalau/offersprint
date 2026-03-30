@@ -3,6 +3,7 @@ import {
   FinalCtaSection,
   HeroSection,
   PainSection,
+  HumanReviewSection,
   PricingSection,
   ProgramIntroSection,
   ScanAnchorSection,
@@ -34,6 +35,7 @@ export default function Home() {
         <SprintContentSection />
       </div>
       <FounderTrustSection />
+      <HumanReviewSection />
       <PricingSection />
       <FaqSection />
       <FinalCtaSection />
